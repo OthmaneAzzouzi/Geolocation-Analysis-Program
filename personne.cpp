@@ -1,13 +1,19 @@
 #include <algorithm>
 #include "personne.h"
 
+
 #define nbLieuxMinimum 2
 #define nbTempsMinimum 120
 #define seuilProximite 25
 
+Personne::Personne() {}
+
+Personne::Personne(std::string _nom, Tableau<Coordonnees> &_listeCoordonnees)
+:nom(_nom),listeCoordonnees(&_listeCoordonnees)
+{}
 
 std::string Personne::getNom() const{
-    return "";
+    return this->nom;
 }
 
 std::string Personne::getTypeRelation(const Personne& autre) const{
@@ -16,25 +22,47 @@ std::string Personne::getTypeRelation(const Personne& autre) const{
 }
 
 std::istream& operator >>(std::istream& is, Personne& p){
-    // À compléter : ce code ne fait que lire le fichier.
-    // Vous devez le compléter pour assigner les valeurs lues dans les attributs de la personne p.
+
     std::string nom;
     Coordonnees coor;
-    int heure;
+    int index = 0;
+    Tableau<Coordonnees> liste;
+    bool condition = true;
+
     is >> nom;
     if(nom.empty() || is.eof()) return is;
-    while(true){
+    p.nom = nom;
+
+    while(condition){
+
         char c;
         is >> c;
-        if(c=='-'){
-            assert(is.get()=='-');
-            break;
-        }else{
+
+        if(c=='-' && is.get()=='-') {
+            condition = false;
+        }else {
             is.unget();
+            is >> coor;
+            liste.ajouter(coor);
+            index++;
         }
-        is >> coor >> heure >> c;
-        assert(c==';');
     }
+    Tableau<Coordonnees> *temp = new Tableau<Coordonnees>(liste);
+
+    p.listeCoordonnees = temp;
+
     return is;
+}
+
+
+Coordonnees& Personne::operator[] (int index)
+{
+    return this->listeCoordonnees->operator[](index);
+}
+
+
+const Coordonnees& Personne::operator[] (int index) const
+{
+    return this->listeCoordonnees->operator[](index);
 }
 

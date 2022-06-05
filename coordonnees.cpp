@@ -5,12 +5,13 @@
 #define PI 3.14159265359
 
 Coordonnees::Coordonnees(const Coordonnees& coor)
-  : latitude(coor.latitude), longitude(coor.longitude)
+  : latitude(coor.latitude), longitude(coor.longitude), tempsArrivee(coor.tempsArrivee)
 {
 }
 
-Coordonnees::Coordonnees(double latitude_, double longitude_) 
-  : latitude(latitude_), longitude(longitude_)
+Coordonnees::Coordonnees(double latitude_, double longitude_,
+                         double tempsArrivee_)
+  : latitude(latitude_), longitude(longitude_), tempsArrivee(tempsArrivee_)
 {
 }
 
@@ -21,13 +22,14 @@ double Coordonnees::distance(const Coordonnees& coor) const {
 }
 
 std::istream& operator >> (std::istream& is, Coordonnees& coor) {
-    char po, vir, pf;
+    char po, vir, pf, pv;
     is >> po;
     if(is){
-        is >> coor.latitude >> vir >> coor.longitude >> pf;
+        is >> coor.latitude >> vir >> coor.longitude >> pf >> coor.tempsArrivee >> pv;
         assert(po=='(');
         assert(vir==',');
         assert(pf==')');
+        assert(pv==';');
         coor.longitude *= PI / 180.0;
         coor.latitude  *= PI / 180.0;
     }
@@ -39,7 +41,10 @@ std::ostream& operator << (std::ostream& os, const Coordonnees& coor) {
        << (coor.latitude * 180.0 / PI)
        << "," 
        << (coor.longitude * 180.0 / PI)
-       << ")";
+       << ")"
+       << " "
+       << coor.tempsArrivee
+       << ";";
     return os;
 }
 

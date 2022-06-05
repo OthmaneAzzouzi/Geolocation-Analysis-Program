@@ -1,11 +1,12 @@
 #include <cstdlib>
 #include <iostream>
+#include <istream>
 #include <fstream>
 #include "tableau.h"
-#include "personne.h"
+#include "personne.cpp"
 
 using namespace std;
-
+/**
 int tp2(istream& in){
     Tableau<Personne> personnes;
 
@@ -25,9 +26,30 @@ int tp2(istream& in){
     }
     return 0; // fin normale
 }
+**/
+
+int tp2(istream& in){
+    Tableau<Personne> personnes;
+
+    while(in){
+        Personne nouvellePersonne;
+        in >> nouvellePersonne;
+        if(in.eof()) break;
+        personnes.ajouter(nouvellePersonne);
+    }
+
+    std::cout << personnes[0][1].tempsArrivee << std::endl;
+    std::cout << personnes[1][1].tempsArrivee << std::endl;
+
+
+
+    return 0; // fin normale
+}
+
 
 int main(int argc, const char** argv)
 {
+
     if(argc<2)
         return tp2(cin);
     else{
