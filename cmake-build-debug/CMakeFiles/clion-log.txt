@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/oazzouzi/Documents/UQAM/ETE_2022/INF3105_E22/TP2/Geolocation-Analysis-Program -B /Users/oazzouzi/Documents/UQAM/ETE_2022/INF3105_E22/TP2/Geolocation-Analysis-Program/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/oazzouzi/Documents/UQAM/ETE_2022/INF3105_E22/TP2/Geolocation-Analysis-Program/cmake-build-debug
