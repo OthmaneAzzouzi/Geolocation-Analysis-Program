@@ -14,6 +14,8 @@ class Personne{
     Personne(std::string _nom, Tableau<Coordonnees> &_listeCoordonnees);
     std::string getNom() const;
     std::string getTypeRelation(const Personne& autre) const;
+    int getTypeRelationTest(const Personne& autre) const;
+
 
     Coordonnees&	           operator[] (int index);
     const Coordonnees&         operator[] (int index) const;
@@ -26,6 +28,7 @@ private:
     Tableau<Coordonnees> *listeCoordonnees;
 
     friend std::istream& operator >>(std::istream&, Personne&);
+    friend class Coordonnees;
 
 };
 

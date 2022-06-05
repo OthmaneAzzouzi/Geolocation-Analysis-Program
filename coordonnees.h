@@ -3,6 +3,8 @@
 #include <iostream>
 #include <istream>
 
+
+
 class Coordonnees {
   public:
     Coordonnees(){}
@@ -19,6 +21,7 @@ private:
   friend std::ostream& operator << (std::ostream&, const Coordonnees&);
   friend std::istream& operator >> (std::istream&, Coordonnees&);
   friend int tp2(std::istream& in);
+  friend class Personne;
 };
 
 #endif
