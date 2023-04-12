@@ -69,5 +69,5 @@ Where:
 
 # Authors
 
-The project is developed by Othmane Azzouzi and Besma Jabri
+The project is developed by Othmane Azzouzi and Besma Jabri.
 
