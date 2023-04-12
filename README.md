@@ -67,6 +67,31 @@ Where:
 * <priority> is the priority of the task (1 = high, 2 = medium, 3 = low)
 * <time_required> is the time required to complete the task (a positive integer)
 
+# Example
+Here is an entry example: 
+
+
+```bash
+Marc
+(45.509207,-73.568186) 500 ;
+(45.509888,-73.570654) 670 ;
+(45.508737,-73.572344) 800 ;
+(45.508986,-73.568310) 1080 ;
+--
+Eve
+(45.509948,-73.570804) 500 ;
+(45.509286,-73.568221) 540 ;
+(45.508809,-73.572421) 1080 ;
+(45.508380,-73.571314) 1360 ;
+--
+```
+
+This example visually corresponds to the following map:
+
+[![traces00.png](https://i.postimg.cc/hGfkc8F6/traces00.png)](https://postimg.cc/HJ1Ztyk9)
+
+Marc arrives at position (45.509207,-73.568186) (PK de l'UQAM) at time 500. Ève arrives at position (45.509286,-73.568221) (PK de l'UQAM) a little later at time 540. Since these two positions are 25 meters away or less, Mark and Eve are deemed to be at the same place from time 540. Mark moves at time 670 to his next destination (45.509888,-73.570654). So Mark and Eve have spent 670 - 540 = 130 minutes so far. Please note that 131 minutes should not be counted, because minute 540 is included, but minute 670 is excluded (he is returned to his other place). Mark and Eve are thus acquaintances (they have spent 120 minutes or more together). However, they are not friends. When Eve arrives at her third place at time 1080, Marc has already arrived at his fourth place at time 1080. They therefore did not meet a second time, the minimum condition for being friends. If Marc had moved at minute 1081, that would have been enough for them to be friends, as evidenced by the result with traces01.txt.
+
 # Authors
 
 The project is developed by Othmane Azzouzi and Besma Jabri.
