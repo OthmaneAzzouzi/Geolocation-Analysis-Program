@@ -94,5 +94,5 @@ Marc arrives at position (45.509207,-73.568186) (PK de l'UQAM) at time 500. Ève
 
 # Authors
 
-The project is developed by Othmane Azzouzi and Besma Jabri.
+The project was developed by Othmane Azzouzi and Besma Jabri.
 
