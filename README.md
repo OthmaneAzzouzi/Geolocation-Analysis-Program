@@ -1,4 +1,4 @@
-# Geolocation Analysis Program
+Geolocation Analysis Program
 ## Description
 The goal of this project is to implement a program that simulates the management of tracks (consists of a geographical coordinate in the form of latitude and longitude as well as an integer indicating the time of arrival at this location (in minutes since midnight) in a city, using various data structures and algorithms.
 
